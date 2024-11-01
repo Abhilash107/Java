@@ -4,6 +4,9 @@
     "java.project.referencedLibraries": [
         "lib/**/*.jar"
     ],
-    "editor.fontSize": 13,
-    "editor.fontFamily": "'Segoe UI', sans-serif\""
+    "editor.fontSize": 14,
+    "editor.fontFamily": "Consolas, 'Courier New', monospace",
+    "editor.fontVariations": false,
+    "editor.fontLigatures": false,
+    "editor.fontWeight": "600"
 }
