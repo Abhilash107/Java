@@ -3,5 +3,7 @@
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
         "lib/**/*.jar"
-    ]
+    ],
+    "editor.fontSize": 13,
+    "editor.fontFamily": "'Segoe UI', sans-serif\""
 }
