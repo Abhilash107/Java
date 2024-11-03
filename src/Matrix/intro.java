@@ -58,4 +58,24 @@ public class intro {
 
         return true;
     }
+
+    public static boolean binarySearch(int a[][], int x){
+        // optimal approach
+        //Just convert it to an 1D array
+        int n = a.length;
+        int m = a[0].length;
+
+        int l = 0, h = n * m -1;
+
+        while (l <= h) {
+            int mid = (l+h)/2;
+            int row = mid / m, col = mid % m;
+
+            if(a[row][col] == x) return true;
+            else if(a[row][col] > x)h = mid -1;
+            else l = mid + 1;
+        }
+        
+        return false; 
+    }
 }
