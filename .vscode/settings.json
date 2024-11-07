@@ -4,9 +4,9 @@
     "java.project.referencedLibraries": [
         "lib/**/*.jar"
     ],
-    "editor.fontSize": 14,
+    "editor.fontSize": 13,
     "editor.fontFamily": "Consolas, 'Courier New', monospace",
     "editor.fontVariations": false,
     "editor.fontLigatures": false,
-    "editor.fontWeight": "500"
+    "editor.fontWeight": "600"
 }
