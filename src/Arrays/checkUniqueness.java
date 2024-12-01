@@ -6,8 +6,6 @@ public class checkUniqueness {
     public static void main(String[] args) {
         int[] arr= {1,2,0,4,4};
         System.out.println(isUniquePresent(arr));
-
-
     }
 
     public static boolean isUniquePresent(int[] arr){
