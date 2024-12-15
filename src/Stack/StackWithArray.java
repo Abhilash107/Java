@@ -67,13 +67,18 @@ public class StackWithArray {
         StackWithArray stack = new StackWithArray();
         int num = 5;
         for (int i = 1; i <= 5; i++) {
-            stack.push(5 * i);
+            stack.push(num * i);
         }
 
 
 
         stack.display();//25 20 15 10 5
         stack.displayReverse();//5 10 15 20 25
+        int popped = stack.pop();
+        int top = stack.top();
+        stack.display();
+        System.out.println(popped+" "+top);
+
 
         //System.out.println(stack.top());
 
