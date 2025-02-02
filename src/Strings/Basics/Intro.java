@@ -32,12 +32,20 @@ public class Intro {
         //stdOne.getDetails();
 
         Student stdTwo = new Student("Leo Messi", 35);
-        stdTwo.getDetails();
+        //stdTwo.getDetails();
 
         stdTwo.name = "La pulga";
         stdTwo.age = 15;
-        stdTwo.getDetails();
+        //stdTwo.getDetails();
         stdTwo.setDetails("La Masia", 19);
-        stdTwo.getDetails();
+        //stdTwo.getDetails();
+
+        String a = new String("leo");//
+        String b = new String("leo");
+        System.out.println(a == b);// false Cz of presence of memory in heap
+        String c = "leo";//
+        String d = "leo";//
+        System.out.println(c == d);// true Cz of presence of memory in pool
+        // Use equals() instead of ==
     }
 }
