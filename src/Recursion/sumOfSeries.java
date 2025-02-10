@@ -5,6 +5,7 @@ public class sumOfSeries {
     public static void main(String[] args) {
         long res = sumOfSeries(5);
         System.out.println(res);
+        System.out.println(sumOFSeriesAlternative(5));
     }
 
     public static long sumOfSeries(long n) {
@@ -15,6 +16,11 @@ public class sumOfSeries {
         sum += (long)Math.pow(n, 3);
 
         return sum;
+    }
+
+    public static long sumOFSeriesAlternative(long n){
+        if(n == 1)return 1;
+        return n + sumOFSeriesAlternative(n-1);
     }
 
 }
