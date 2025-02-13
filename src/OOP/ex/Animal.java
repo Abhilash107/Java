@@ -1,4 +1,4 @@
-package OOP;
+package OOP.ex;
 
 public class Animal {
     String name;

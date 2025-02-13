@@ -1,4 +1,4 @@
-package OOP;
+package OOP.ex;
 
 public class Cat extends Animal{
     String breed;

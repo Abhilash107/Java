@@ -1,4 +1,4 @@
-package OOP;
+package OOP.ex;
 
 public class Car {
     //Model, color, edition, Brand, speed

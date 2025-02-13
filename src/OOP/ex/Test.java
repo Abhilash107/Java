@@ -1,6 +1,4 @@
-package OOP;
-
-import java.lang.ref.Reference;
+package OOP.ex;
 
 public class Test {
     public static void main(String[] args) {
