@@ -34,6 +34,12 @@ public class Test {
         //second example -> hello , 10 + 4
 
 
+        //3rd example
+        //School school = new School();//'School()' has private access in 'OOP. Static. School'
+        School school = School.getInstance();
+
+
+
     }
 
     public int sum(int a, int b){
