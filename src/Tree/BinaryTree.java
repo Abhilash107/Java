@@ -1,5 +1,6 @@
 package Tree;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -54,11 +55,49 @@ public class BinaryTree {
 
             List<Integer> subList = new LinkedList<>();//sublist to store nodes on each level
             for(int i = 0;i < size;i++){
-                if(queue.peek().left != null)queue.offer(queue.peek().left);//get the left node
-                if(queue.peek().right != null)queue.offer(queue.peek().right);//get the right node
-                subList.add(queue.poll().data);//also add the visited node to the sublist
+                Node node = queue.poll();
+
+                if (node.left != null) queue.offer(node.left);//get the left node
+                if (node.right != null) queue.offer(node.right);//get the right node
+                subList.add(node.data);//also add the visited node to the sublist
             }
             res.add(subList);//add sublist to the res
+
+        }
+        return res;
+
+
+    }
+
+    List<List<Integer>> zigzagLevelOrder(Node root) {
+        List<List<Integer>> res = new ArrayList<>();
+        if(root == null)return res;
+
+        boolean leftToRight = true;
+        Queue<Node> queue = new LinkedList<>();
+
+        queue.offer(root);
+
+        while(!queue.isEmpty()){
+            int size = queue.size();
+
+            List<Integer> subList = new ArrayList<>();
+
+            for(int i = 0; i < size;i++){
+                Node node = queue.poll();
+
+                if(leftToRight){//checking the direction
+                    subList.add(node.data);
+                }
+                else{
+                    subList.add(0, node.data);
+                }
+
+                if(node.left != null)queue.offer(node.left);//Adding to queue
+                if(node.right != null)queue.offer(node.right);
+            }
+            res.add(subList);
+            leftToRight = !leftToRight;//set the direction flag
 
         }
         return res;
