@@ -1,5 +1,9 @@
 package Tree;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 class Node{
     int data;
     Node left, right;
@@ -35,6 +39,45 @@ public class BinaryTree {
         postorder(node.right);
         System.out.print(node.data+ " ");
 
+
+    }
+
+    List<List<Integer>> levelOrder(Node root) {
+        Queue<Node> queue = new LinkedList<>();
+        List<List<Integer>> res = new LinkedList<List<Integer>>();
+
+        if(root == null) return res;
+
+        queue.offer(root);//add root to the queue
+        while(!queue.isEmpty()){//check if not empty
+            int size = queue.size();
+
+            List<Integer> subList = new LinkedList<>();//sublist to store nodes on each level
+            for(int i = 0;i < size;i++){
+                if(queue.peek().left != null)queue.offer(queue.peek().left);//get the left node
+                if(queue.peek().right != null)queue.offer(queue.peek().right);//get the right node
+                subList.add(queue.poll().data);//also add the visited node to the sublist
+            }
+            res.add(subList);//add sublist to the res
+
+        }
+        return res;
+
+
+    }
+
+
+    int maxDepth(Node node) {
+        if(node == null)return 0;
+
+        int lh = maxDepth(node.left);
+        int rh = maxDepth(node.right);
+
+        if(Math.abs(rh - lh) > 1)return -1;
+        if(lh == -1 || rh == -1)return -1;
+
+
+        return 1 + Math.max(lh, rh);
 
     }
 
