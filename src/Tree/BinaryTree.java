@@ -239,7 +239,7 @@ public class BinaryTree {
 
     }
 
-    //reverse preOrder ==> Root -> Right -> Left
+    //reverse preOrder ==> Root -> Right -> Left(IMP)
     public void getRightNode(Node root, List<Integer> res, int level){
         if(root == null)return;
 
