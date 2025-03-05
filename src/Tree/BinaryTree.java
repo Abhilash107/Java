@@ -203,6 +203,34 @@ public class BinaryTree {
     }
 
 
+    List<Integer> BottomView(Node root){
+        List<Integer> res = new ArrayList<>();
+        Queue<Pair> q = new LinkedList<>();
+        if(root == null)return res;
+
+        Map<Integer, Integer> map = new TreeMap<>();//map to store line and node
+
+        q.offer(new Pair(root, 0));//add the root to the queue
+
+        while(!q.isEmpty()){
+            Pair p = q.poll();//get the node from queue and extract details
+            int line = p.line;
+            Node node = p.node;
+
+            map.put(line, node.data);
+            //check if present in map or not
+            if(node.left != null)q.offer(new Pair(node.left, line - 1));//get left node if nay present
+            if(node.right != null)q.offer(new Pair(node.right, line + 1));//get right node if nay present
+
+        }
+        for(Map.Entry<Integer, Integer> entry: map.entrySet()){
+            res.add(entry.getValue());//add to the res list;
+        }
+
+        return res;
+    }
+
+
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree();
         tree.root = new Node(1);
