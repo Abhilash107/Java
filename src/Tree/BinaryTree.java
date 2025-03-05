@@ -230,6 +230,26 @@ public class BinaryTree {
         return res;
     }
 
+    List<Integer> rightSideView(Node root) {
+        List<Integer> res = new ArrayList<>();
+
+        getRightNode(root, res, 0);
+
+        return res;
+
+    }
+
+    //reverse preOrder ==> Root -> Right -> Left
+    public void getRightNode(Node root, List<Integer> res, int level){
+        if(root == null)return;
+
+        if(level == res.size())res.add(root.data);
+
+        getRightNode(root.right, res, level + 1);
+        getRightNode(root.left, res, level + 1);
+
+    }
+
 
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree();
