@@ -5,7 +5,6 @@ import java.util.*;
 class Tuple{
     Node node;
     int row, col;
-
     public Tuple(Node n, int r, int c) {
         node = n;
         row = r;
@@ -13,6 +12,16 @@ class Tuple{
 
     }
 }
+
+class Pair{
+    Node node;
+    int line;
+    public Pair(Node n, int line) {
+        this.node = n;
+        this.line = line;
+    }
+}
+
 class Node{
     int data;
     Node left, right;
@@ -164,6 +173,33 @@ public class BinaryTree {
             }
         }
         return list;
+    }
+
+    //L IMP
+    List<Integer> topView(Node root){
+        List<Integer> res = new ArrayList<>();
+        Queue<Pair> q = new LinkedList<>();
+        if(root == null)return res;
+
+        Map<Integer, Integer> map = new TreeMap<>();//map to store line and node
+
+        q.offer(new Pair(root, 0));//add the root to the queue
+
+        while(!q.isEmpty()){
+            Pair p = q.poll();//get the node from queue and extract details
+            int line = p.line;
+            Node node = p.node;
+
+            if(!map.containsKey(line))map.put(line, node.data);//check if present in map or not
+            if(node.left != null)q.offer(new Pair(node.left, line - 1));//get left node if nay present
+            if(node.right != null)q.offer(new Pair(node.right, line + 1));//get right node if nay present
+
+        }
+        for(Map.Entry<Integer, Integer> entry: map.entrySet()){
+            res.add(entry.getValue());//add to the res list;
+        }
+
+        return res;
     }
 
 
