@@ -1,10 +1,18 @@
 package Tree;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
+class Tuple{
+    Node node;
+    int row, col;
+
+    public Tuple(Node n, int r, int c) {
+        node = n;
+        row = r;
+        col =c;
+
+    }
+}
 class Node{
     int data;
     Node left, right;
@@ -43,6 +51,21 @@ public class BinaryTree {
 
     }
 
+    int maxDepth(Node node) {
+        if(node == null)return 0;
+
+        int lh = maxDepth(node.left);
+        int rh = maxDepth(node.right);
+
+        if(Math.abs(rh - lh) > 1)return -1;
+        if(lh == -1 || rh == -1)return -1;
+
+
+        return 1 + Math.max(lh, rh);
+
+    }
+
+
     List<List<Integer>> levelOrder(Node root) {
         Queue<Node> queue = new LinkedList<>();
         List<List<Integer>> res = new LinkedList<List<Integer>>();
@@ -68,6 +91,7 @@ public class BinaryTree {
 
 
     }
+
 
     List<List<Integer>> zigzagLevelOrder(Node root) {
         List<List<Integer>> res = new ArrayList<>();
@@ -105,19 +129,41 @@ public class BinaryTree {
 
     }
 
+    //IMP
+    List<List<Integer>> verticalTraversal(Node root){
+        TreeMap<Integer, TreeMap<Integer, PriorityQueue<Integer>>> map = new TreeMap<>();
 
-    int maxDepth(Node node) {
-        if(node == null)return 0;
+        Queue<Tuple> queue = new LinkedList<>();
+        queue.offer(new Tuple(root, 0 , 0));//node, vertical line , level
+        while(!queue.isEmpty()){
+            Tuple tuple = queue.poll();
+            Node node = tuple.node;
+            int x = tuple.row, y = tuple.col;
 
-        int lh = maxDepth(node.left);
-        int rh = maxDepth(node.right);
+            if(!map.containsKey(x)){//Outer TreeMap key check and put
+                map.put(x, new TreeMap<>());
+            }
 
-        if(Math.abs(rh - lh) > 1)return -1;
-        if(lh == -1 || rh == -1)return -1;
+            if(!map.get(x).containsKey(y)){//Inner treemap check and put
+                map.get(x).put(y, new PriorityQueue<>());
+            }
 
+            map.get(x).get(y).offer(node.data);
 
-        return 1 + Math.max(lh, rh);
+            if(node.left != null)queue.offer(new Tuple(node.left, x - 1, y + 1 ));
+            if(node.right != null)queue.offer(new Tuple(node.right, x + 1, y + 1 ));
+        }
 
+        List<List<Integer>> list = new ArrayList<>();
+        for(TreeMap <Integer, PriorityQueue<Integer>> ans: map.values()){
+            list.add(new ArrayList<>());
+            for(PriorityQueue<Integer> nodes: ans.values()){
+                while(!nodes.isEmpty()){
+                    list.get(list.size() - 1).add(nodes.poll());
+                }
+            }
+        }
+        return list;
     }
 
 
