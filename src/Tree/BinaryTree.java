@@ -250,6 +250,25 @@ public class BinaryTree {
 
     }
 
+    public boolean isSymmetric(Node root) {
+        if(root == null)return true;
+
+        return isSymmetricHelper(root.left, root.right);
+    }
+
+
+    public boolean isSymmetricHelper(Node root1, Node root2) {
+        if(root1 == null || root2 == null) return root1 == root2;
+
+        return  (root1.data == root2.data)
+                && isSymmetricHelper(root1.left, root.right)
+                && isSymmetricHelper(root1.right, root2.left);
+
+    }
+
+
+
+
 
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree();
