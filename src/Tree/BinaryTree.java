@@ -267,8 +267,73 @@ public class BinaryTree {
     }
 
 
+    public void makeParents(Node root, Map<Node, Node> parentTrack, Node target){
+        Queue<Node> q = new LinkedList<>();
+
+        q.offer(root);
+
+        while (!q.isEmpty()){
+            Node node = q.poll();
+
+            if(node.left != null) {
+                parentTrack.put(node.left, node);
+                q.offer(node.left);
+            }
+
+            if(node.right != null) {
+                parentTrack.put(node.right, node);
+                q.offer(node.right);
+            }
+        }
+    }
 
 
+    public List<Integer> distanceK (Node root, Node target, int k){
+        Map<Node, Node> map = new HashMap<>();
+        makeParents(root, map, target);
+
+        Map<Node, Boolean> visited = new HashMap<>();
+
+        Queue<Node> q = new LinkedList<>();
+
+        q.offer(target);
+        visited.put(target, true);
+
+        int level = 0;
+
+        while(!q.isEmpty()) {
+            int size = q.size();
+            if(level == k) break;
+            level++;
+
+            for(int i = 0; i < size;i++){
+                Node node = q.poll();
+                if(node.left != null && visited.get(node.left) == null){
+                    q.offer(node.left);
+                    visited.put(node.left, true);
+                }
+
+                if(node.right != null && visited.get(node.right) == null){
+                    q.offer(node.right);
+                    visited.put(node.right, true);
+                }
+
+                if(map.get(node) != null && visited.get(map.get(node)) == null){
+                    q.offer(map.get(node));
+                    visited.put(map.get(node), true);
+                }
+
+            }
+        }
+
+        List<Integer> res = new ArrayList<>();
+        while(!q.isEmpty()){
+            Node node = q.poll();
+            res.add(node.data);
+        }
+
+        return  res;
+    }
 
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree();
