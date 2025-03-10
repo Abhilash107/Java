@@ -1,5 +1,7 @@
 package Tree;
 
+import com.sun.jdi.IncompatibleThreadStateException;
+
 import java.util.*;
 
 class Tuple{
@@ -334,6 +336,37 @@ public class BinaryTree {
 
         return  res;
     }
+
+    public List<Double> averageOfLevels(Node root) {
+        List<Double> ans = new ArrayList<>();
+
+        if(root == null) return ans;
+
+        Queue<Node> q = new LinkedList<>();
+
+        q.offer(root);
+
+        while(!q.isEmpty()){
+            int size = q.size();
+            double sum = 0;
+
+            List<Integer> level = new ArrayList<>();
+
+            for (int i = 0; i < size; i++) {
+                Node node = q.poll();
+                sum += node.data;
+
+                if(node.left != null)q.offer(node.left);
+                if(node.right != null)q.offer(node.right);
+
+            }
+
+            ans.add(sum / size);
+        }
+
+        return ans;
+    }
+
 
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree();
