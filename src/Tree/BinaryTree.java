@@ -372,7 +372,6 @@ public class BinaryTree {
 
         for (int i = 0; i < inorder.length; i++) {
             map.put(inorder[i], i);
-
         }
 
         Node newNode = buildTree(preorder, 0, preorder.length -1, inorder, 0, inorder.length - 1, map);
@@ -381,14 +380,13 @@ public class BinaryTree {
     }
 
     public Node buildTree(int[] preorder, int preStart, int preEnd, int[] inorder, int inStart, int inEnd, Map<Integer, Integer> map){
-        Node node = new Node(preorder[preStart]);
         if (preStart > preEnd || inStart > inEnd) return null;
-
+        Node node = new Node(preorder[preStart]);
 
         int inRoot = map.get(node.data);// get data
-        int leftNums = inRoot - preStart;
+        int leftNums = inRoot - inStart;
 
-        node.left = buildTree(preorder, preStart + 1, preStart + leftNums + 1, inorder, inStart, inRoot - 1, map);
+        node.left = buildTree(preorder, preStart + 1, preStart + leftNums, inorder, inStart, inRoot - 1, map);
         node.right = buildTree(preorder, preStart + leftNums + 1, preEnd, inorder, inRoot + 1, preEnd, map);
 
         return node;
