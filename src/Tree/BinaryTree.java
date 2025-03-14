@@ -393,6 +393,61 @@ public class BinaryTree {
 
     }
 
+    public Node deleteNode(Node root, int key) {
+        if(root ==null)return null;
+
+        if(root.data == key)return helper(root);
+
+        Node node = root;
+
+        while(root!=null){
+            if(root.data > key){
+                if(root.left != null && root.left.data == key){
+                    root.left = helper(root.left);break;
+                }
+                else{
+                    root = root.left;
+                }
+            }
+            else{
+                if(root.right != null && root.right.data == key){
+                    root.right = helper(root.right);break;
+                }
+                else{
+                    root = root.right;
+                }
+            }
+        }
+
+        return node;
+    }
+
+    public Node helper(Node root) {
+        if (root == null) return null;
+        if(root.left ==null)return root.right;
+        else if (root.right ==null)return root.left;
+
+        else{
+            Node leftChild = root.left;
+            Node lastLeft = getLastLeft(root.right);
+            lastLeft.left = leftChild;
+            return root.right;
+
+        }
+    }
+
+    public Node getLastLeft(Node node){
+        if(node.left == null) return node;
+
+        return getLastLeft(node.left);
+
+//        while(node.left  != null){
+//            node = node.left;
+//        }
+//        return  node;
+
+    }
+
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree();
         tree.root = new Node(1);
