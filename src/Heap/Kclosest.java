@@ -57,10 +57,12 @@ public class Kclosest {
     }
 
     //Using Binary Search
-//    public static List<Integer> findClosestElementsII(int[] arr, int k, int x) {
+//    public static List<Integer> findClosestElementsII(int[] arr, int k, int x) {}
 //
 //
 //
 //
 //
-//    }
+//
+
+}
