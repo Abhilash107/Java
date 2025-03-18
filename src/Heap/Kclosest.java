@@ -21,6 +21,10 @@ class Pair implements Comparable<Pair>{
         }
         return other.element - this.element; // If same diff, sort larger number first
     }
+
+    public int getValue() {
+        return 0;
+    }
 }
 
 public class Kclosest {
