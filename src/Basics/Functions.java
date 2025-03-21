@@ -100,4 +100,40 @@ public class Functions {
 
         return sum;
     }
+
+    public static class FactorialTrailingZeros {
+        public static void main(String[] args) {
+            System.out.println(trailingZeroes(0));
+        }
+        public static int trailingZeroes(int n) {
+            if( n == 0) return 0;
+            int fact = 1;
+            for(int i = 2;i <= n;i++){
+                fact *= i;
+            }
+
+            int count = 0;
+            int temp = fact;
+            while(temp%10 == 0){
+                count++;
+                temp /= 10;
+            }
+
+            return count;
+        }
+    }
+
+    public static class perfectSquare {
+        public static void main(String[] args) {
+            int sum = 0;
+            int i = 1;
+            for(;sum <= 10000; i++){
+                int j = i * i;
+                sum+= j;
+            }
+            if(sum == 12) System.out.println(sum);
+            System.out.println("hehe");
+
+        }
+    }
 }
