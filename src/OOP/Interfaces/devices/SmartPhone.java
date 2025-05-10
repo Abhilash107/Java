@@ -4,7 +4,7 @@ package OOP.Interfaces.devices;
 
 public class SmartPhone implements Phone, MusicPlayer, Camera {
     //Class cannot extend multiple classes
-    //So we r using interface
+    //So we are using interface
 
 
     @Override
