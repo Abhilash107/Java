@@ -1,4 +1,4 @@
-package collectionFramework.stack;
+package collectionFramework.list.stack;
 
 import java.util.LinkedList;
 import java.util.Stack;
