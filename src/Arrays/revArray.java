@@ -4,10 +4,11 @@ import java.util.Arrays;
 public class revArray {
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5};
-        System.out.println(Arrays.toString(reverse(arr)));
+        reverse(arr);
+        System.out.println(Arrays.toString(arr));
     }
 
-    public static int[] reverse(int[] a) {
+    public static void reverse(int[] a) {
         int l = 0;
         int h = a.length - 1;
 
@@ -21,6 +22,6 @@ public class revArray {
             h--;
         }
 
-        return a;
+
     }
 }
