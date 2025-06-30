@@ -9,7 +9,14 @@ public class Main {
 
         // Unordered
         //not thread safety
-        //O(1) -> put, get
+        //O(1) -> put, get, remove, containsKey  (Average case)
+        // if collision occurs then O(logN) --> worst case
+
+        //containsValue -> O(n) Avg
+        // ''  -> O(n) Worst
+
+        //size() -> O(1)
+        //isEmpty() -> O(1)
 
 
         map.put(1, 10);
@@ -47,6 +54,8 @@ public class Main {
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
             System.out.println(entry.getKey() + " -> "+ entry.getValue());
         }
+
+
 
 
 
