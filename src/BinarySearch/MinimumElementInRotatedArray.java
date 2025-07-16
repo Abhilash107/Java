@@ -23,7 +23,6 @@ public class MinimumElementInRotatedArray {
                 h = mid - 1;
             }
 
-
         }
 
         return ans;
