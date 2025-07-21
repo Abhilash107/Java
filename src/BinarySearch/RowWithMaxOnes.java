@@ -29,5 +29,23 @@ public class RowWithMaxOnes {
     }
 
     //most optimal
+    public static int rowWithMax1s(int[][] a) {
+        int n = a.length;
+        int m = a[0].length;
+
+        int i = 0, j = m - 1;
+        int index = -1;
+
+        while (i < n && j >= 0) {
+            if (a[i][j] == 1) {
+                index = i;
+                j--;  // Move left
+            } else {
+                i++;  // Move down
+            }
+        }
+
+        return index;
+    }
 
 }
