@@ -16,6 +16,8 @@ public class Siuuu {
             list.add(x);
         }
         System.out.println(list);
+        int a, b;
+        a = b = 10;
 
     }
 }
