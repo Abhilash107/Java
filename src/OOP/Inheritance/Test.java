@@ -29,7 +29,7 @@ public class Test {
         //GrandParent called...
         //parent called...
 //        parent.setAge(56);
-//        parent.setName("Prakash");
+//        parent.setName("Father");
 
 
         Cat cat = new Cat();//Hierarchical inheritance as Dg and cat both extends Animal
@@ -40,9 +40,9 @@ public class Test {
         //Child method
 
         //Child method
-        //Parent method...  if super is called after print statement
+        //Parent method...  if super is called after the print statement
 
-        //It ia a good practice to write @override while overrriding
+        //It is a good practice to write @override while overriding
 
 
     }

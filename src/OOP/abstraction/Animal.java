@@ -30,11 +30,11 @@ public abstract class Animal {
     }
 
 
-    //public void sayHello();//Missing method body, or declare abstract
-    //Abstract method in non-abstract class so need to set abstract in class
+    //public void sayHello();//Missing method body, or declare abstract.
+    //Abstract methods in non-abstract class so need to set abstract in class
     public abstract void sayHello();//abstract method
 
-    //can write regular methods inside abstract class
+    //can write regular methods inside abstract class like getter and setters
     public void sleep(){//Concrete method
         System.out.println("zzz....");
     }
