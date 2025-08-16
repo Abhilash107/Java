@@ -15,7 +15,7 @@ public class Test {
 
         //Multi-level inheritance
 
-        //Child child = new Child();
+        Child child = new Child(10, "Abhi");
 //        child.setAge(23);
 //        child.setName("Abhilash");
 //        System.out.println(child.hasSuperPowers());//fasle
@@ -35,7 +35,7 @@ public class Test {
         Cat cat = new Cat();//Hierarchical inheritance as Dg and cat both extends Animal
         cat.say();
 
-        //child.childMethod();
+        child.childMethod();
         //Parent method...  from super();
         //Child method
 
