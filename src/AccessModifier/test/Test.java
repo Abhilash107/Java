@@ -17,6 +17,7 @@ public class Test {
         Dog dog = new Dog("Bob");
         dog.makeSound();
         //dog.changeSound();//'changeSound(java. lang. String)' has protected access in 'AccessModifier. zoo. Animal'
+        // so it can't be accessed directly, but it can be accessed via a public method like setSound which call the "changeSound()" defined in the subclass that is Dog
         dog.setSound("woof");
     }
 }
