@@ -1,6 +1,7 @@
 package OOP.Final;
 
-public final class Car extends Vehicle{// declaring a class as final makes it unextendable,meaning no other class can inherit from it.
+public final class Car extends Vehicle{
+    // declaring a class as final makes it unextendable, meaning no other class can inherit from it.
     private final int price;
 
     public Car(){

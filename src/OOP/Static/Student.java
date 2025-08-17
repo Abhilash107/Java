@@ -4,7 +4,6 @@ public class Student {
 
     public static int count = 0;
 
-
     static{
         count = 10;
         System.out.println("Hello");
