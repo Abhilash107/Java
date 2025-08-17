@@ -3,7 +3,7 @@ package OOP.Interfaces.devices;
 
 
 public class SmartPhone implements Phone, MusicPlayer, Camera {
-    //Class cannot extend multiple classes
+    //Class cannot extend multiple class
     //So we are using interface
 
 
