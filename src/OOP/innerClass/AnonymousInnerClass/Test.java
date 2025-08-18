@@ -6,8 +6,11 @@ public class Test {
         CreditCard card = new CreditCard("wer45t54");//implements the payment interface
         cart.processPayment(card);//uses the payment interface to
 
-        //Here we can create an anonymous class without creating a separate class for interface implementation
-        //e.g. of Anonymous class
+        //OR
+
+        // Alternatively, use an anonymous inner class to implement Payment on the fly
+        // Demonstrates flexibility: no need for a separate class
+        // Anonymous class
         cart.processPayment(new Payment() {// it is not an obj  and observe after new <INTERFACE_NAME> there are curly braces to override the abstract methods;
             @Override
             public void pay(double amount) {
