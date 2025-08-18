@@ -8,7 +8,9 @@ public enum Day {
     FRIDAY("FRIDAY"),
     SATURDAY("SATURDAY"),
     SUNDAY("SUNDAY");
-    //all these are final instance of Day class
+    //all these are static and final instance of Day class
+
+    private String lower;
 
     private Day(String lower){
         System.out.println("Constructor called....");
@@ -18,9 +20,6 @@ public enum Day {
     public String getLower() {
         return lower;
     }
-
-    private String lower;
-
 
 
     public void display(){
