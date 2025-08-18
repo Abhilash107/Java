@@ -35,6 +35,9 @@ public class Hotel {
 
         }//LOCAL class
 
+        // The local inner class ReservationValidator is scoped only within the reserveRoom method.
+        // It cannot be accessed outside this method, which is normal and intended for local classes.
+        // There are no scope issues in your code regarding the local class.
         ReservationValidator validator = new ReservationValidator();
         if(validator.validate()){
             reservedRooms += noOfRoom;
