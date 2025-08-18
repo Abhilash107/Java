@@ -8,5 +8,12 @@ public class Test {
         engine.start();
         engine.stop();
 
+        //OR
+
+        Car.Engine eng = new Car("Sedan").new Engine();
+        eng.start();
+        eng.start();
+        eng.stop();
+
     }
 }
