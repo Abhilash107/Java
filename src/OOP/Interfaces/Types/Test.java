@@ -8,6 +8,8 @@ class MyClass implements Marker{
 public class Test {
     public static void main(String[] args) {
 
+        //anonymous class
+        //This allows you to use normal as an object with those method implementations.
         Normal normal = new Normal() {
             @Override
             public void eat() {

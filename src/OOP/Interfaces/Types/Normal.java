@@ -7,5 +7,5 @@ public interface Normal {
     void repeat();
 //    Declares one or more abstract methods.
 //
-//    Implemented by classes using implements keyword.
+//    Implemented by classes using "implements" keyword.
 }
