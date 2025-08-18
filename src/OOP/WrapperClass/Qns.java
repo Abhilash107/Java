@@ -9,30 +9,39 @@ public class Qns {
     public static void main(String[] args) {
         Student x = new Student();//x is a ref to an OBJ
         x.id = 1;
-        fun(x);
-        System.out.println(x.id);//1
-        fun2(x);
-        System.out.println(x.id);//10
+
+//        fun(x);
+////
+//        System.out.println(x.id);//1
+
+
+//
+//        fun2(x);
+//        System.out.println(x.id);//10
 
 
         //Ex - 3
         Integer a = 10;
-        fun3(a);
-        System.out.println(a);//10
+        //fun3(a);
+        //System.out.println(a);//10
 
-        Integer b = 3;
-        b = b - 2;
-        System.out.println(b);
+//        Integer b = 3;
+//        b = b - 2;
+//        System.out.println(b);
+
+        int num = 10;
+        fun4(num);
+        System.out.println(num);
 
         //Ex - 4
         Integer m = 10;
-        Integer n = 20;
+        Integer n = 10;
         int u = 3;
         int v = 3;
 
-        System.out.println(m == n);//same equality check
-        System.out.println(m.equals(n));//same equality check
-        System.out.println(u == v);
+//        System.out.println(m == n);//same equality check
+//        System.out.println(m.equals(n));//same equality check
+//        System.out.println(u == v);
 
 
 
@@ -41,21 +50,29 @@ public class Qns {
         Student student = new Student();// new obj
         student.id = 10;
         a = student;// a = student obj i.e a points to a diff obj but x in the main method a points to the same OBJ
+        System.out.println("Inside Fun: "+ a.id);
     }
 
-    public static void fun2(Student a){//a is a reference
+    public static void fun2(Student a){//"a" is a reference.
         a.id = 10;//access the "a" changes the obj value
-        //Inside fun2(Student a), a is a copy of the reference x, so a also points to the same object.
+        System.out.println("Inside Fun2: "+ a.id);
+        //Inside fun2(Student a), a is a copy of the reference x, so "a" also points to the same object.
         //a.id = 10; modifies the same object that x refers to.
 
 
     }
 
     public static void fun3(Integer a){
-        a = 20;//ref is changed but the obj remains same
+        a = 20;//ref is changed but the obj remains the same
+        System.out.println("Inside Fun3: "+ a);
         //the reference "a" is reassigned to a new Integer object (20), but this does not affect the original reference in main().
 
+    }
 
+    public static void fun4(int a){
+        a = 20;
+        System.out.println("Inside Fun4: "+ a);
+        //fun4 does not change the value of num in main because Java passes primitive types (like int) by value.
     }
 
 
