@@ -1,7 +1,6 @@
 package OOP.innerClass.staticInnerClass;
 
 
-
 public class Computer {
     private String brand;
     private String model;
@@ -20,6 +19,7 @@ public class Computer {
 
     }
 
+    //static inner class
     static class USB{
         private String type;
 
@@ -32,8 +32,7 @@ public class Computer {
         }
     }
 
-
-
+    //member inner class
      class OperatingSystem{
         private String osName;
 
