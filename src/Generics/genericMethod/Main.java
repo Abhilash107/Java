@@ -8,6 +8,9 @@ public class Main {
         Integer[] a = {1,2,3,4,5,6,7,8,9};
 
         main.print(a);
+
+        String[] str = {"A", "B", "C"};
+        main.print(str);
     }
 
     public <T> void print(T[] arr){

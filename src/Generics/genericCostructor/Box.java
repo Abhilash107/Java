@@ -1,6 +1,6 @@
 package Generics.genericCostructor;
 
-import Multithreading.B;
+
 
 public class Box {
 

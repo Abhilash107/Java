@@ -12,7 +12,7 @@ public class Main {
     public <T> T getFirst(ArrayList<T> list){
         return list.get(0);
     }
-    //? -> only for read only
+    //? -> only for read-only
 
     public <T> void copy(ArrayList<T> src, ArrayList<T> dest){
 
@@ -23,6 +23,7 @@ public class Main {
 
     //Upper bound
     public double sum(List<? extends Number> numbers){
+        //accepts a List of any type that is a subclass of Number
         double sum = 0;
 
         for(Number o: numbers){
@@ -34,6 +35,7 @@ public class Main {
 
     //Lower bound
     public static void printNumbers(List<? super Integer> list){
+        //accepts a List of any type that is a superclass of Integer
         for(Object obj: list){
             System.out.println(obj);
         }

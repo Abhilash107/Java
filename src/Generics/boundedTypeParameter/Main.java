@@ -125,8 +125,6 @@ public class Main {
 //
 //
 //class Boxx<T extends MyNumber>{
-//    //here it implements Printable(not extended)
-//    // 1st one is class and 2nd one is an interface
 //
 //    private T item;
 //

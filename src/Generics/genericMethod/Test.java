@@ -15,11 +15,12 @@ enum Operation{
                 return a.doubleValue() * b.doubleValue();
 
             case DIVIDE:
-                return a.doubleValue() * b.doubleValue();
+                return a.doubleValue() / b.doubleValue();
 
             default:
                 throw new AssertionError("Unknown operation: "+ this);
         }
+        // no need of break as each case emds with a return statement
     }
 
 }

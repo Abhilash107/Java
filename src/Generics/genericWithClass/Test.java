@@ -31,7 +31,7 @@ public class Test {
         //System.out.println(integer+"  "+string);
         System.out.println(integer);
 
-        // To overcome this issue we use generics
+        // To overcome this issue, we use generics
         ArrayList<Integer> intList = new ArrayList<>();// <> diamond operator
 
         intList.add(1);
@@ -47,8 +47,17 @@ public class Test {
         Box<Integer> box = new Box<>();
         box.setValue(2);
         int val = box.getValue();
+        System.out.println(val);
 //        String value = box.getValue();//Compile time error & type safe
         // many objects with various datatypes can be created with a single class
+
+        //let's create a class with String datatype
+
+        Box<String> strBox = new Box<>();
+        strBox.setValue("Cool");
+        String res = strBox.getValue();
+        System.out.println(res);
+
 
 
 
@@ -56,6 +65,10 @@ public class Test {
         Pair<Integer, String> pair = new Pair<>(1, "Papun");
         System.out.println(pair.getKey());
         System.out.println(pair.getValue());
+
+        Pair<String, Integer> newPair = new Pair<>("A", 10);
+        System.out.println(newPair.getKey());
+        System.out.println(newPair.getValue());
 
 
 
