@@ -13,6 +13,8 @@ public class PriorQueue {
         maxHeap.add(40);
         maxHeap.add(50);
         maxHeap.add(60);
+
+
         PriorityQueue<Integer> minHeap = new PriorityQueue<Integer>();//min heap
         minHeap.add(10);
         minHeap.add(20);
