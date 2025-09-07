@@ -25,12 +25,34 @@ public class BSTree {
 
         return list.get(list.size() - 1);
     }
+
+    public static int getMaxOpt(Node root){
+
+       if(root == null) return -1;
+
+       while (root.right != null){
+           root = root.right;
+       }
+
+       return root.val;
+    }
+
     public static int getMin(Node root){
 
         List<Integer> list = new ArrayList<>();
         inOrderHehe(root, list);
 
         return list.get(0);
+    }
+    public static int getMinOpt(Node root){
+
+       if(root == null) return -1;
+
+       while (root.left != null){
+           root = root.left;
+       }
+
+       return root.val;
     }
 
     public static void inOrder(Node root){
@@ -61,8 +83,11 @@ public class BSTree {
 
         //inOrder(tree.root);
 
-        System.out.println(getMax(tree.root));
-        System.out.println(getMin(tree.root));
+        //System.out.println(getMax(tree.root));
+        System.out.println(getMaxOpt(tree.root));
+
+        //System.out.println(getMin(tree.root));
+        System.out.println(getMinOpt(tree.root));
 
 
     }
