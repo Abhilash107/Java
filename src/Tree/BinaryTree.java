@@ -145,24 +145,37 @@ public class BinaryTree {
         TreeMap<Integer, TreeMap<Integer, PriorityQueue<Integer>>> map = new TreeMap<>();
 
         Queue<Tuple> queue = new LinkedList<>();
-        queue.offer(new Tuple(root, 0 , 0));//node, vertical line , level
-        while(!queue.isEmpty()){
+        queue.offer(new Tuple(root, 0 , 0));//node, vertical line, level
+
+//        //while(!queue.isEmpty()){
+//            Tuple tuple = queue.poll();
+//            Node node = tuple.node;
+//            int x = tuple.col, y = tuple.row;
+//
+//            if(!map.containsKey(x)){//Outer TreeMap key check and put
+//                map.put(x, new TreeMap<>());
+//            }
+//
+//            if(!map.get(x).containsKey(y)){//Inner treemap check and put
+//                map.get(x).put(y, new PriorityQueue<>());
+//            }
+//
+//            map.get(x).get(y).offer(node.data);
+//
+//            if(node.left != null)queue.offer(new Tuple(node.left, x - 1, y + 1 ));
+//            if(node.right != null)queue.offer(new Tuple(node.right, x + 1, y + 1 ));
+//        }
+        while (!queue.isEmpty()) {
             Tuple tuple = queue.poll();
             Node node = tuple.node;
-            int x = tuple.row, y = tuple.col;
+            int col = tuple.col, row = tuple.row;
 
-            if(!map.containsKey(x)){//Outer TreeMap key check and put
-                map.put(x, new TreeMap<>());
-            }
+            map.computeIfAbsent(col, k -> new TreeMap<>())
+                    .computeIfAbsent(row, k -> new PriorityQueue<>())
+                    .offer(node.data);
 
-            if(!map.get(x).containsKey(y)){//Inner treemap check and put
-                map.get(x).put(y, new PriorityQueue<>());
-            }
-
-            map.get(x).get(y).offer(node.data);
-
-            if(node.left != null)queue.offer(new Tuple(node.left, x - 1, y + 1 ));
-            if(node.right != null)queue.offer(new Tuple(node.right, x + 1, y + 1 ));
+            if (node.left != null)  queue.offer(new Tuple(node.left,  col - 1, row + 1));
+            if (node.right != null) queue.offer(new Tuple(node.right, col + 1, row + 1));
         }
 
         List<List<Integer>> list = new ArrayList<>();

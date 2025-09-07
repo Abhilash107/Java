@@ -1,16 +1,16 @@
 package Heap;
 
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class TopKreqElements {
     public static void main(String[] args) {
+        int a[] = { 1,1,1,2,2,3,4};
+        int res[] = topKFrequent(a, 2);
+        System.out.println(Arrays.toString(res));
 
     }
 
-    public int[] topKFrequent(int[] nums, int k) {
+    public static int[] topKFrequent(int[] nums, int k) {
         int ans[] = new int[k];
         HashMap<Integer, Integer> map = new HashMap<>();
         for (int x : nums) {
@@ -23,10 +23,10 @@ public class TopKreqElements {
             if (pq.size() > k) pq.poll();
 
         }
-        int p = 0;
+        //int p = 0;
         while (!pq.isEmpty()) {
-            ans[p] = pq.poll();
-            p++;
+            ans[--k] = pq.poll();
+
         }
 
         return ans;
