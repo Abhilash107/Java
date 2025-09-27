@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class bubble {
     public static void main(String[] args) {
         int arr[] = {3, 6, 3, 1, 6, 8};
-        bubbleSort(arr, arr.length-1);
+        bubbleSortII(arr, arr.length-1);
         System.out.println(Arrays.toString(arr));
     }
     public static void bubbleSort(int[] a, int n){
@@ -21,5 +21,23 @@ public class bubble {
             }
             if(swappedCount == 0) break;
         }
+    }
+
+    public static void bubbleSortII(int[] arr, int n) {
+
+        for(int i = n-1;i >= 0;i--){
+            boolean isSwapped = false;
+            for(int j = 0;j <= i - 1;j++){
+                if(arr[j + 1] < arr[j]){
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    isSwapped = true;
+                }
+            }
+
+            if(!isSwapped)break;
+        }
+
     }
 }
