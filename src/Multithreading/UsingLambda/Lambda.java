@@ -7,7 +7,7 @@ public class Lambda {
 
         // let's implement an interface using lambda function
         // class --> here no extra class
-        // obj  --> ob and method in a same block
+        // obj  --> obj and method in a same block
         // call the method
 
         //Using anonymous class
